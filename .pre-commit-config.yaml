@@ -1,0 +1,13 @@
+repos:
+  - repo: https://github.com/srstevenson/nb-clean
+    rev: 3.3.0
+    hooks:
+      - id: nb-clean
+        args:
+          - --remove-empty-cells
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    # uv version.
+    rev: 0.4.15
+    hooks:
+      # Update the uv lockfile
+      - id: uv-lock

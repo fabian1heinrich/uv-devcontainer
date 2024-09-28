@@ -1,0 +1,11 @@
+[project]
+name = "uv-devcontainer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["notebook>=7.2.2", "numpy>=2.1.1"]
+
+[tool.uv]
+dev-dependencies = ["nb-clean>=3.3.0", "pre-commit>=3.8.0", "ruff>=0.6.7"]
+cache-dir = "/workspaces/.cache/uv/"

@@ -7,20 +7,28 @@
   "containerUser": "vscode",
   "runArgs": [
     "--name",
+    "${localWorkspaceFolderBasename}",
+    "--hostname",
     "${localWorkspaceFolderBasename}"
   ],
   "containerEnv": {
     "UV_PROJECT_ENVIRONMENT": "/home/vscode/.cache/uv/.venv",
-    "VIRTUAL_ENV": "/home/vscode/.cache/uv/.venv"
+    "VIRTUAL_ENV": "/home/vscode/.cache/uv/.venv",
+    "STOW_DIR": "/home/vscode/dotfiles"
   },
   "mounts": [
     "source=cache,target=/workspaces/.cache/uv,type=volume,consistency=cached"
   ],
-  "onCreateCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh; $HOME/.cargo/bin/uv sync",
+  "onCreateCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh",
+  "updateContentCommand": ". $HOME/.cargo/env && uv sync",
+  "postCreateCommand": ". $HOME/.cargo/env && uv venv --prompt '🛰️ 📦' && uv run pre-commit install",
   "customizations": {
     "vscode": {
       "settings": {
-        "python.defaultInterpreterPath": "/home/vscode/.cache/uv/.venv/bin/python"
+        "python.defaultInterpreterPath": "/home/vscode/.cache/uv/.venv/bin/python",
+        "dotfiles.repository": "https://github.com/fabian1heinrich/dotfiles.git",
+        "dotfiles.installCommand": "/home/vscode/dotfiles/.devcontainer/setup.sh",
+        "dotfiles.targetPath": "/home/vscode/dotfiles"
       },
       "extensions": [
         "charliermarsh.ruff",

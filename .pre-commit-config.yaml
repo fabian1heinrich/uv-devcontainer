@@ -6,8 +6,14 @@ repos:
         args:
           - --remove-empty-cells
   - repo: https://github.com/astral-sh/uv-pre-commit
-    # uv version.
     rev: 0.4.15
     hooks:
-      # Update the uv lockfile
       - id: uv-lock
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
+    hooks:
+      - id: ruff
+        types_or: [python, pyi, jupyter]
+        args: [--fix]
+      - id: ruff-format
+        types_or: [python, pyi, jupyter]

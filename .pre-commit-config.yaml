@@ -6,7 +6,7 @@ repos:
         args:
           - --remove-empty-cells
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.4.15
+    rev: 0.5.5
     hooks:
       - id: uv-lock
   - repo: https://github.com/astral-sh/ruff-pre-commit

@@ -2,7 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
   "name": "${localWorkspaceFolderBasename}",
-  "image": "mcr.microsoft.com/vscode/devcontainers/python:3.11",
+  "image": "mcr.microsoft.com/vscode/devcontainers/python:3.11-bookworm",
   "remoteUser": "vscode",
   "containerUser": "vscode",
   "runArgs": [
@@ -13,23 +13,12 @@
   ],
   "containerEnv": {
     "UV_PROJECT_ENVIRONMENT": "/home/vscode/.cache/uv/.venv",
-    "VIRTUAL_ENV": "/home/vscode/.cache/uv/.venv",
-    "STOW_DIR": "/home/vscode/dotfiles"
+    "VIRTUAL_ENV": "/home/vscode/.cache/uv/.venv"
   },
-  "mounts": [
-    "source=cache,target=/workspaces/.cache/uv,type=volume,consistency=cached"
-  ],
-  "onCreateCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh",
-  "updateContentCommand": ". $HOME/.cargo/env && uv sync",
-  "postCreateCommand": ". $HOME/.cargo/env && uv venv --prompt '🛰️ 📦' && uv run pre-commit install",
+  "onCreateCommand": "pipx install uv && uv sync",
+  "postCreateCommand": "uv run pre-commit install",
   "customizations": {
     "vscode": {
-      "settings": {
-        "python.defaultInterpreterPath": "/home/vscode/.cache/uv/.venv/bin/python",
-        "dotfiles.repository": "https://github.com/fabian1heinrich/dotfiles.git",
-        "dotfiles.installCommand": "/home/vscode/dotfiles/.devcontainer/setup.sh",
-        "dotfiles.targetPath": "/home/vscode/dotfiles"
-      },
       "extensions": [
         "charliermarsh.ruff",
         "GitHub.copilot-chat",
@@ -51,16 +40,13 @@
         "christian-kohler.path-intellisense",
         "esbenp.prettier-vscode",
         "jeffersonlicet.snipped",
-        "ms-toolsai.tensorboard",
         "Gruntfuggly.todo-tree",
         "redhat.vscode-yaml",
         "adpyke.codesnap",
-        "gitpod.gitpod-remote-ssh",
         "kisstkondoros.vscode-gutter-preview",
         "DavidAnson.vscode-markdownlint",
         "mechatroner.rainbow-csv",
         "ms-toolsai.jupyter",
-        "GitLab.gitlab-workflow",
         "tamasfe.even-better-toml"
       ]
     }

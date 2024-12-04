@@ -2,7 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
   "name": "${localWorkspaceFolderBasename}",
-  "image": "mcr.microsoft.com/vscode/devcontainers/python:3.11-bookworm",
+  "image": "mcr.microsoft.com/vscode/devcontainers/python:3.12-bookworm",
   "remoteUser": "vscode",
   "containerUser": "vscode",
   "runArgs": [
@@ -12,8 +12,7 @@
     "${localWorkspaceFolderBasename}"
   ],
   "containerEnv": {
-    "UV_PROJECT_ENVIRONMENT": "/home/vscode/.cache/uv/.venv",
-    "VIRTUAL_ENV": "/home/vscode/.cache/uv/.venv"
+    "UV_PROJECT_ENVIRONMENT": "/workspaces/.cache/uv/.venv"
   },
   "onCreateCommand": "pipx install uv && uv sync",
   "postCreateCommand": "uv run pre-commit install",
@@ -47,8 +46,12 @@
         "DavidAnson.vscode-markdownlint",
         "mechatroner.rainbow-csv",
         "ms-toolsai.jupyter",
-        "tamasfe.even-better-toml"
-      ]
+        "tamasfe.even-better-toml",
+        "foxundermoon.shell-format"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/workspaces/.cache/uv/.venv/bin/python"
+      }
     }
   }
 }

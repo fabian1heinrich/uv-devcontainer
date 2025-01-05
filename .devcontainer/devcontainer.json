@@ -12,7 +12,8 @@
     "${localWorkspaceFolderBasename}"
   ],
   "containerEnv": {
-    "UV_PROJECT_ENVIRONMENT": "/workspaces/.cache/uv/.venv"
+    "UV_PROJECT_ENVIRONMENT": "/workspaces/.cache/.venv",
+    "UV_CACHE_DIR": "/workspaces/.cache/uv"
   },
   "onCreateCommand": "pipx install uv && uv sync",
   "postCreateCommand": "uv run pre-commit install",
@@ -50,7 +51,7 @@
         "foxundermoon.shell-format"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "/workspaces/.cache/uv/.venv/bin/python"
+        "python.defaultInterpreterPath": "/workspaces/.cache/.venv/bin/python"
       }
     }
   }

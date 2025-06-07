@@ -12,10 +12,11 @@
     "${localWorkspaceFolderBasename}"
   ],
   "containerEnv": {
-    "UV_PROJECT_ENVIRONMENT": "/workspaces/.cache/.venv",
-    "UV_CACHE_DIR": "/workspaces/.cache/uv"
+    "UV_PROJECT_ENVIRONMENT": "/home/vscode/.cache/.venv",
+    "UV_CACHE_DIR": "/home/vscode/.cache/uv"
   },
-  "onCreateCommand": "pipx install uv && uv sync",
+  "onCreateCommand": "pipx install uv && whoami",
+  "updateContentCommand": "uv sync",
   "postCreateCommand": "uv run pre-commit install",
   "customizations": {
     "vscode": {
@@ -51,7 +52,7 @@
         "foxundermoon.shell-format"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "/workspaces/.cache/.venv/bin/python"
+        "python.defaultInterpreterPath": "/home/vscode/.cache/.venv/bin/python"
       }
     }
   }

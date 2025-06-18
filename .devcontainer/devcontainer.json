@@ -14,7 +14,7 @@
   "remoteUser": "vscode",
   "containerEnv": {
     "UV_CACHE_DIR": "/home/vscode/.cache/uv",
-    "UV_PROJECT_ENVIRONMENT": "/home/vscode/.cache/.venv"
+    "UV_PROJECT_ENVIRONMENT": "/home/vscode/.cache/uv/.venv"
   },
   "customizations": {
     "vscode": {
@@ -90,7 +90,7 @@
         "python.autoComplete.extraPaths": [
           "${workspaceFolder}"
         ],
-        "python.defaultInterpreterPath": "/home/vscode/.cache/.venv/bin/python",
+        "python.defaultInterpreterPath": "/home/vscode/.cache/uv/.venv/bin/python",
         "python.languageServer": "Pylance",
         "python.terminal.activateEnvInCurrentTerminal": true,
         "ruff.configuration": "pyproject.toml",
